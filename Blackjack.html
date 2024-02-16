@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+    <head>
+        <h1>Blackjack</h1>
+        <script src="blackJack.js"></script>
+        <link rel="stylesheet" href="Blackjack.css">
+    </head>
+    <body>
+        <div id="intro" style="display:inline-block;">
+            <button id="startGame" onclick="startGame()" style="margin: 0 auto;" >Play</button>
+            <br>
+            <p><br>How to Play Blackjack?<br><br>
+                Press play<br>
+                The dealer deals one card to you and one to itself, without showing you its card<br>
+                The dealer then deals another hand to both you and itself, Although this time its card is visible<br>
+                You may stay or hit<br>
+                Once you are done with the hits the dealer reveals its hand<br>
+                If your hand is greater than the dealer you win<br>
+                If your hand is 21, you win<br>
+                If you and the dealer both have a hand of 21, it's a tie<br>
+                If your hand at any time reaches over 21 you lose<br><br>
+            </p>
+        </div>
+
+        <div id="game" style="display: none;">
+            <h2>Dealer</h2>
+            <div id="dealerImg">
+            </div>
+            <br>
+            <div id="playerImg">
+            </div>
+            <h2>Player</h2>
+            <button id="stay" onclick="Stay()">Stay</button>
+            <button id="hit" onclick="Hit()">Hit</button><br>
+            <button id="quit" onclick="goHome()">Quit</button>
+        </div>
+        <div id="endMessage" style="display: none;">
+            <p id="resultDeclaration"></p>
+            <button id="playAgain" onclick="startGame()">Play Again</button>
+            <button id="homeButton" onclick="goHome()">Home</button>
+        </div>
+    </body>
+</html>

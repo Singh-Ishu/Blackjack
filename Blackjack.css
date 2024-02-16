@@ -1,0 +1,45 @@
+body{
+    
+    background-image: url("assets\\tabletop.png");
+    background-size: cover;
+    text-align: center;
+}
+h1{
+    font-size: 130px;
+    font-family: "Goudy Old Style", "Garamond", "Big Caslon", "Times New Roman", "serif" ;
+    color: goldenrod;
+    -webkit-text-stroke: 0.5px whitesmoke;
+}
+h2{
+    font-size: 65px;
+    font-family: "Goudy Old Style", "Garamond", "Big Caslon", "Times New Roman", "serif" ;
+    color: rgb(27, 154, 23);
+    -webkit-text-stroke: 1px rgb(136, 0, 0);
+}
+p{
+    font-size: 23px;
+    font-style: italic;
+    color: aliceblue;
+    border: 2px;
+    border-color: gold;
+    border-style: dashed;
+}
+button{
+    font-size: 40px;
+    text-align: center;
+    
+    display: block;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(250, 70, 70);
+    color: rgb(235, 175, 35);
+    -webkit-text-stroke: 1px rgb(31, 79, 6);
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-style:outset;
+    border-color: rgb(10, 95, 3);
+}
+img{
+    width: 150px;
+    height: 230px;
+}
