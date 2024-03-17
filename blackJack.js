@@ -3,7 +3,7 @@ let dealerSum=0
 let playerCards=[]
 let playerSum=0
 let playingDeck=['HA','H2','H3','H4','H5','H6','H7','H8','H9','H10','HK','HQ','HJ','DA','D2','D3','D4','H5','D6','D7','D8','D9','D10','DK','DQ','DJ','SA','S2','S3','S4','S5','S6','S7','S8','S9','S10','SK','SQ','SJ','CA','C2','C3','C4','C5','C6','C7','C8','C9','C10','CK','CQ','CJ']
-
+let isAlive=true
 //Gives one card to any deck of choice
 function cardGiver(deck){
     let flag=0
@@ -37,6 +37,7 @@ function cardGiver(deck){
 }
 
 //Places the ace cards at the end of the deck
+/*The Error is that deck is composed of integers where as card needs to be a string
 function cardSort(deck){
     let cardIndex=[]
     let newDeck=[]
@@ -44,13 +45,13 @@ function cardSort(deck){
     for(let i=0;i<deck.length;i++){
         let cardLength=deck[i].length
         let card=deck[i]
-        if(card.slice(1,cardLength)==='A'){
+        if(card.slice(1)==='A'){
             cardIndex.push(i)
         }
     }
     //Adding all non aces cards to newDeck
     for(let j=0;j<deck.length;j++){
-        if(deck[j].slice(1,deck[j].length)!='A'){
+        if(deck[j].slice(1)!='A'){
             newDeck.push(deck[j])
         }
     }
@@ -59,7 +60,7 @@ function cardSort(deck){
         newDeck.push(deck[cardIndex[i]])
     }
     return newDeck
-}
+}*/
 
 //Updates the values of playerSum and dealerSum
 function Count(){
@@ -240,23 +241,28 @@ function cardClear(){
 
 //Hit: gives player another card, places it on screen and if card value goes above 21 ends game
 function Hit(){
-    cardGiver(playerCards)
-    playerImage()
-    Count()
-    if (playerSum>=21){
-        End()
+    if(isAlive){
+        cardGiver(playerCards)
+        playerImage()
+        Count()
+        if (playerSum>=21){
+            End()
+        }
     }
 }
 
 //Stay: reveals dealerOne card, calculates end condtion
 function Stay(){
-    dealerImage()
-    playerImage()
-    End()
+    if (isAlive){
+        dealerImage()
+        playerImage()
+        End()
+    }
 }
 
 //End function
 function End(){
+    isAlive=false
     Count()
     document.getElementById("endMessage").style.display = "inline-block";
     if(playerSum>21){
@@ -285,8 +291,10 @@ function End(){
 
 //Start functions
 function startGame(){
+    isAlive=true
     document.getElementById("game").style.display = "block";
     document.getElementById("intro").style.display = "none";
+    document.getElementById("endMessage").style.display = "none";
     cardClear()
     cardGiver(dealerCards)
     cardGiver(playerCards)
